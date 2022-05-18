@@ -1,4 +1,4 @@
-const { fileUpload } = require("../../utility/multer_fileUpload");
+const { fileUpload } = require("../utility/multer_fileupload");
 
 
 function uploadFile(req, res, next) {

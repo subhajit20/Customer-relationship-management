@@ -1,0 +1,244 @@
+<script>
+  const propsal_form = document.getElementById("propsal_form");
+  const propsal_submit = document.getElementById("propsal_submit");
+
+  const validationCustom03 = document.getElementById("validationCustom03");
+  const selectForm = document.getElementById("selectForm");
+
+  const ja_solar_405 = document.getElementById("ja_solar_405");
+  const first_item = document.querySelector(".first_item");
+  const quantity = document.getElementById("quantity1");
+
+  const solar_quantity = document.getElementById("solar_quantity");
+
+  /* ----------********** Adding Total Fee **********------------*/
+  const total_fee = document.querySelector(".total_fee");
+
+  /* ---------Solar 405-------- */
+  ja_solar_405.addEventListener("click", (e) => {
+    if (ja_solar_405.checked) {
+      first_item.innerHTML = ja_solar_405.value;
+    } else {
+      first_item.innerHTML = "NaN";
+    }
+  });
+
+  solar_quantity.addEventListener("keyup", () => {
+    quantity.innerHTML = 405 * solar_quantity.value;
+  });
+
+  /* ---------Solar 405-------- */
+
+  const ja_solar_390 = document.getElementById("ja_solar_390");
+  const second_item = document.querySelector(".second_item");
+
+  ja_solar_390.addEventListener("click", (e) => {
+    if (ja_solar_390.checked) {
+      second_item.innerHTML = ja_solar_390.value;
+    } else {
+      second_item.innerHTML = "NaN;";
+    }
+  });
+
+  /* ------------ sofar_inverter ----------- */
+  const sofar_inverter = document.getElementById("sofar_inverter");
+  const third_item = document.querySelector(".third_item");
+
+  sofar_inverter.addEventListener("click", (e) => {
+    if (sofar_inverter.checked) {
+      third_item.innerHTML = sofar_inverter.value;
+    } else {
+      third_item.innerHTML = "NaN;";
+    }
+  });
+
+  /* ------------- promo1  ---------------*/
+  const fourth_item = document.querySelector(".fourth_item");
+  const quantity4 = document.querySelector("#quantity4");
+  const promo1 = document.querySelector(".promo1");
+
+  promo1.addEventListener("click", () => {
+    if (promo1.checked) {
+      fourth_item.innerHTML = promo1.name;
+      quantity4.innerHTML = promo1.value;
+    } else {
+      fourth_item.innerHTML = "";
+      quantity4.innerHTML = "";
+    }
+  });
+
+  /* ------------- promo2  ---------------*/
+  const fifth_item = document.querySelector(".fifth_item");
+  const quantity5 = document.querySelector("#quantity5");
+  const promo2 = document.querySelector(".promo2");
+
+  promo2.addEventListener("click", () => {
+    if (promo2.checked) {
+      fifth_item.innerHTML = promo2.name;
+      quantity5.innerHTML = promo2.value;
+    } else {
+      fifth_item.innerHTML = "NaN;";
+      quantity5.innerHTML = "NaN";
+    }
+  });
+  /* ------------sofar_inverter------------*/
+  const sofar_hyd = document.getElementById("sofar_hyd");
+  const sixth_item = document.querySelector(".sixth_item");
+  const quantity6 = document.querySelector("#quantity6");
+
+  sofar_hyd.addEventListener("click", () => {
+    if (sofar_hyd.checked) {
+      sixth_item.innerHTML = sofar_hyd.name;
+      quantity6.innerHTML = sofar_hyd.value;
+    } else {
+      sixth_item.innerHTML = "NaN";
+      quantity6.innerHTML = "NaN;";
+    }
+  });
+
+  promo2.addEventListener("click", () => {
+    if (promo2.checked) {
+      fifth_item.innerHTML = promo2.value;
+    } else {
+      fifth_item.innerHTML = "NaN;";
+    }
+  });
+
+  /* ------------tigo_optimizer------------*/
+  const tigo_optimizer = document.getElementById("tigo_optimizer");
+  const seven_item = document.querySelector(".seven_item");
+  const quantity7 = document.querySelector("#quantity7");
+
+  tigo_optimizer.addEventListener("keyup", () => {
+    if (tigo_optimizer.value.length === 0) {
+      seven_item.innerHTML = "";
+      quantity7.innerHTML = "";
+
+      // adTotal(sofar_hyd.value)
+    } else {
+      seven_item.innerHTML = tigo_optimizer.id;
+      quantity7.innerHTML = 23 * tigo_optimizer.value;
+    }
+  });
+
+  /* ------------tigo_optimizer------------*/
+  const zinken_dak = document.getElementById("zinken_dak");
+  const eight_item = document.querySelector(".eight_item");
+  const quantity8 = document.querySelector("#quantity8");
+
+  zinken_dak.addEventListener("keyup", () => {
+    if (zinken_dak.value.length === 0) {
+      eight_item.innerHTML = "";
+      quantity8.innerHTML = "";
+
+      // adTotal(sofar_hyd.value)
+    } else {
+      eight_item.innerHTML = zinken_dak.id;
+      quantity8.innerHTML = 125 * zinken_dak.value;
+    }
+  });
+
+  /* ------------tigo_optimizer------------*/
+  const hoogwerker = document.getElementById("hoogwerker");
+  const nine_item = document.querySelector(".nine_item");
+  const quantity9 = document.querySelector("#quantity9");
+
+  hoogwerker.addEventListener("click", () => {
+    if (hoogwerker.checked) {
+      nine_item.innerHTML = hoogwerker.name;
+      quantity9.innerHTML = hoogwerker.value;
+      // adTotal(sofar_hyd.value)
+    } else {
+      nine_item.innerHTML = "NaN";
+      quantity9.innerHTML = "NaN";
+    }
+  });
+
+  /* ------------tigo_optimizer------------*/
+  const Thuisbatterij = document.getElementById("Thuisbatterij");
+  const ten_item = document.querySelector(".ten_item");
+  const quantity10 = document.querySelector("#quantity10");
+
+  Thuisbatterij.addEventListener("keyup", () => {
+    if (Thuisbatterij.value.length !== 0) {
+      ten_item.innerHTML = Thuisbatterij.name;
+      quantity10.innerHTML = 3900 * Thuisbatterij.value;
+      // adTotal(sofar_hyd.value)
+    } else {
+      ten_item.innerHTML = "NaN";
+      quantity10.innerHTML = "NaN";
+      console.log(quantity10);
+    }
+  });
+
+  const btw = document.querySelector(".btw");
+  const incl_btw = document.querySelector(".incl_btw");
+  function adTotal(a, b, c, d, e, f, g, h, i) {
+    console.log("quantity10:",a);
+    console.log("quantity",b);
+    console.log("quantity6",c);
+    console.log("quantity7",d);
+    console.log("quantity9",e);
+    console.log("quantity8",f);
+    console.log("quantity4",g);
+    console.log("quantity5",h);
+    let sum = a + b + c + d + e + f - g - h;
+    let calBtw = (sum * 6) / 100;
+    let incl = sum + calBtw;
+    // console.log(i)
+    // console.log(sum)
+    total_fee.value = sum;
+    btw.value = calBtw;
+    incl_btw.value = incl;
+  }
+  const calculate = document
+    .getElementById("calculate")
+    .addEventListener("click", () => {
+      adTotal(
+        quantity10.innerHTML,
+        quantity.innerHTML,
+        quantity6.innerHTML,
+        quantity7.innerHTML,
+        quantity9.innerHTML,
+        quantity8.innerHTML,
+        quantity4.innerHTML,
+        quantity5.innerHTML
+      );
+    });
+
+  /* ------------- Make Proposal ------------*/
+  const show_alert = document.getElementById("show_alert");
+
+  propsal_submit.addEventListener("click", async (e) => {
+    e.preventDefault();
+    const formData = new FormData(propsal_form);
+    const res = await fetch("/proposal", {
+      method: "post",
+      body: formData,
+    });
+    const data = await res.json();
+    if (res.status === 200) {
+      console.log(data);
+      show_alert.innerHTML = `<div class="alert alert-success" role="alert">
+                                    <h4 class="alert-heading">Well done!</h4>
+                                    <p>Congratulation! </p>
+                                    <hr>
+                                    <p class="mb-0">You have successfully create your proposal...</p>
+                            </div>`;
+      setTimeout(()=>{
+        show_alert.innerHTML =``
+      },6000)
+    } else {
+      console.log(data);
+      show_alert.innerHTML = `<div class="alert alert-danger" role="alert">
+                                    <h4 class="alert-heading">Well done!</h4>
+                                    <p>Oops Failed!</p>
+                                    <hr>
+                                    <p class="mb-0">! You have not successfully create your proposal...Please fill the form correctly</p>
+                            </div>`;
+      setTimeout(()=>{
+        show_alert.innerHTML =''
+      },6000)
+    }
+  });
+</script>

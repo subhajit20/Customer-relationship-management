@@ -1,22 +1,62 @@
-<div class="container mt-5">
-    <form action="/signup" method="post" id="mySignupFrom">
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Enter Your Username</label>
-            <input type="text" id="myName" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Enter Your Email address</label>
-            <input type="text" id="myEmail" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" id="myPassword" class="form-control" id="exampleInputPassword1">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+<div class="container mt-5" style="display: flex;justify-content: center;">
+    <form action="/signupreq" method="post" id="signupForm">
+        <div class="form">
+            <div class="title">Let's Create a New Employee</div>
+            <div class="subtitle" id="alert_show"></div>
+            <div class="input-container ic1">
+              <input type="text" id="firstname" class="input" name="username" placeholder="Enter Username" />
+              <div class="cut"></div>
+              <label for="firstname" class="placeholder">Username</label>
+            </div>
+            <div class="input-container ic2">
+              <input type="email" name="email" id="email" class="input" placeholder="Enter Email" />
+              <div class="cut cut-short"></div>
+              <label for="email" class="placeholder">Email</label>
+            </div>
+            <div class="input-container ic2">
+              <input type="password" name="password" id="lastname" class="input" name="email" placeholder="Enter password" />
+              <div class="cut"></div>
+              <label for="lastname" class="placeholder">Password</label>
+            </div>
+            <button type="text" class="submit" id="signupButton">Create Account</button>
+          </div>
     </form>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
-<script src="./js/signupForm.js"></script>
+<script>
+    const signupForm = document.getElementById("signupForm");
+    const signupButton = document.getElementById("signupButton");
+    const alert = document.getElementById("alert_show");
+
+    signupButton.addEventListener("click",async (e)=>{
+        e.preventDefault();
+        const formData = new FormData(signupForm);
+        const res = await fetch("/signupreq",{
+            method:"POST",
+            body:formData
+        })
+        const data = await res.json();
+        if(res.status === 200){
+            console.log(data)
+            alert.innerHTML = `<div class="alert alert-success" role="alert">
+                                Congratulation Your succesfully logged in your account...
+                                </div>`;
+            setTimeout(()=>{
+                alert.innerHTML = ''
+            },2000)
+        }else{
+            console.log(data)
+            alert.innerHTML = `<div class="alert alert-danger" role="alert">
+                                Failed!Invalid email and password...Fill the form Correctly
+                                </div>`;
+            setTimeout(()=>{
+                alert.innerHTML = ''
+            },2000)
+        }
+    })
+</script>
+
 </body>
 </html>

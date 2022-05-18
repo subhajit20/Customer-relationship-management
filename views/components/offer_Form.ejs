@@ -1,0 +1,291 @@
+
+  <h4 id="view_aleert"></h4>
+<div class="container">
+  <div class="container">
+    <div class="py-5 text-center">
+      
+      <h2>Proposal Name = <%= title %></h2>
+  </div>  
+  <form method="post" id="propsal_form" action="/proposal">
+    <div id="show_alert"></div>
+    <div class="row">
+      <div class="col-md-4 order-md-2 mb-4">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Calculating All Amount</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li style="background-color: gray;color: white;" class="list-group-item d-flex justify-content-between lh-condensed">
+            
+            <div class="input-group input-group-sm mb-3 mt-4">
+              <span class="first_item" id="inputGroup-sizing-sm"></span> : <span id="quantity1"></span>
+            </div>
+          </li>
+          <li style="background-color: gray;color: white;" class="list-group-item d-flex justify-content-between lh-condensed">
+            <div class="input-group input-group-sm mb-3 mt-4">
+              <span class="second_item" id="inputGroup-sizing-sm"></span> :  <span id="quantity2"></span>
+            </div>
+          </li>
+          
+          <li style="background-color: gray;color: white;" class="list-group-item d-flex justify-content-between lh-condensed">
+            <div class="input-group input-group-sm mb-3 mt-4">
+              <span class="third_item" id="inputGroup-sizing-sm"> : </span><span id="quantity3"></span>
+            </div>
+          </li>
+          <li style="background-color: gray;color: white;" class="list-group-item d-flex justify-content-between lh-condensed">
+            <div class="input-group input-group-sm mb-3 mt-4">
+              <span class="sixth_item" id="inputGroup-sizing-sm"></span> : <span id="quantity6"></span>
+            </div>
+          </li>
+          <li style="background-color: gray;color: white;" class="list-group-item d-flex justify-content-between lh-condensed">
+            <div class="input-group input-group-sm mb-3 mt-4">
+              <span class="seven_item" id="inputGroup-sizing-sm"></span> : <span id="quantity7"></span>
+            </div>
+          </li>
+          <li style="background-color: gray;color: white;" class="list-group-item d-flex justify-content-between lh-condensed">
+            <div class="input-group input-group-sm mb-3 mt-4">
+              <span class="nine_item" id="inputGroup-sizing-sm"></span> : <span id="quantity9"></span>
+            </div>
+          </li>
+          <li style="background-color: gray;color: white;" class="list-group-item d-flex justify-content-between lh-condensed">
+            <div class="input-group input-group-sm mb-3 mt-4">
+              <span class="ten_item" id="inputGroup-sizing-sm"></span> : <span id="quantity10"></span>
+            </div>
+          </li>
+          <li style="background-color: gray;color: white;" class="list-group-item d-flex justify-content-between lh-condensed">
+            <div class="input-group input-group-sm mb-3 mt-4">
+              <span class="eight_item" id="inputGroup-sizing-sm"></span> : <span id="quantity8"></span>
+            </div>
+          </li>
+          <li style="background-color: gray;color: white;" class="list-group-item d-flex justify-content-between lh-condensed">
+            <div class="input-group input-group-sm mb-3 mt-4">
+              <span class="fourth_item" id="inputGroup-sizing-sm"></span> : <span id="quantity4"></span>
+            </div>
+          </li>
+          <li style="background-color: gray;color: white;" class="list-group-item d-flex justify-content-between lh-condensed">
+            <div class="input-group input-group-sm mb-3 mt-4">
+              <span class="fifth_item" id="inputGroup-sizing-sm">: </span><span id="quantity5"></span>
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            
+            <div class="input-group input-group-sm mb-3 mt-4">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Installaton Fee</span>
+              <input type="number"  name="installation_fee" id="installation_fee" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div class="col-md-10">
+              <label for="total_fee"  class="form-label">Total Fee</label>
+              <input type="number" name="total_fee"  class="form-control total_fee" id="validationCustom02">
+            </div>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div class="col-md-10">
+              <label for="btw" class="form-label">Vat 6%</label>
+              <input type="number" name="btw"  class="form-control btw" id="validationCustom02" id="tptal_incl">
+            </div>   
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div class="col-md-10">
+              <label for="incl_btw" class="form-label">Total incl Vat</label>
+              <input type="number" name="incl_btw" class="form-control incl_btw" id="validationCustom02" id="tptal_incl" >
+            </div>   
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="col-md-10">
+              <label for="premium" class="form-label">Premium - <%= title %></label>
+              <input type="number" name="premium" class="form-control" id="validationCustom02" value="" >
+            </div>
+          </li>
+          <button class="btn btn-primary btn-lg btn-block" id="calculate" type="button">Calculate</button>
+          
+        </ul>
+      </div>
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Billing address</h4>
+        <form class="needs-validation" >
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="fname">First name</label>
+              <input type="text" name="fname" class="form-control" id="firstName" placeholder="" >
+              <div class="invalid-feedback">
+                Valid first name is required.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lname">Last name</label>
+              <input type="text" name="lname" class="form-control" id="lname" placeholder="" value="" >
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="proposar_email">Email <span class="text-muted"></span></label>
+            <input type="email" name="proposar_email" class="form-control" id="email" placeholder="you@example.com">
+            <div class="invalid-feedback">
+              Please enter a valid email address for shipping updates.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="phone_number">Phone Number <span class="text-muted"></span></label>
+            <input type="number" name="phone_number" class="form-control" id="email" placeholder="you@example.com">
+            <div class="invalid-feedback">
+              Please enter a valid email address for shipping updates.
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="address">Address</label>
+            <input type="text"  name="address" class="form-control" id="address" placeholder="1234 Main St" required>
+            <div class="invalid-feedback">
+              Please enter your shipping address.
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+            <input type="text" name="address2" class="form-control" id="address2" placeholder="Apartment or suite">
+          </div>
+  
+          <div class="row">
+            <div class="col-md-5 mb-3">
+              <label for="country">Country</label>
+              <select class="custom-select d-block w-100" name="country" id="country" required>
+                <option value="">Choose...</option>
+                <option value="United States">United States</option>
+                <option value="Belgium">Belgium</option>
+                <option value="India">India</option>
+                <option value="England">England</option>
+                <option value="France">France</option>
+                <option value="Italy">Italy</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid country.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="city">City <span class="text-muted"></span></label>
+              <input type="text" name="city" class="form-control" id="city" placeholder="Apartment or suite">
+            </div>
+            <div class="col-md-10 mb-3">
+              <label for="zip">Zip</label>
+              <input type="number" name="zip" class="form-control" id="zip" placeholder="" >
+              <div class="invalid-feedback">
+                Zip code required.
+              </div>
+            </div>
+          </div>
+          <hr class="mb-4">
+          
+          <div class="form-check form-check-inline mt-3">
+            <div class="form-check form-switch">
+              <label class="form-check-label" class="ja_solar" for="flexSwitchCheckChecked">Ja Solar 390WP</label>
+              <input class="form-check-input" id="ja_solar_390" type="checkbox" name="ja_solar" id="flexSwitchCheckChecked" value="Ja Solar 390WP" >
+            </div>
+          </div>
+          <div class="form-check form-check-inline mt-3">
+            <div class="form-check form-switch">
+              <label class="form-check-label" for="flexSwitchCheckChecked">Ja Solar 405WP</label>
+              <input class="form-check-input" id="ja_solar_405" type="checkbox" name="ja_solar" id="flexSwitchCheckChecked" value="Ja Solar 405WP">
+            </div>
+          </div>
+          <div class="form-check form-check mt-3">
+            <select class="form-select form-select-lg mb-3 mt-4" id="selectForm" name="client_type" aria-label=".form-select-lg example">
+              <option value="Particuller" selected>Particuller</option>
+              <option value="Zakelijk">Zakelijk</option>
+            </select>
+          </div>
+          <div class="input-group input-group-lg mb-3 mt-4">
+            <span class="input-group-text ja_solar_quantity" id="inputGroup-sizing-sm">Ja Solar Quantity</span>
+            <input type="number"  name="ja_solar_quantity" id="solar_quantity" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+          </div>
+          <div style="display:flex;justify-content: center;align-items: center;">
+            <div>
+              <img style="height:200px;height:200px" src="../imgs/sofar_omvormeter.jpeg" alt="">
+            </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" id="sofar_inverter" name="sofar_omvormeter" type="checkbox" id="flexSwitchCheckChecked" value="Sofar Inverter">
+                <label class="form-check-label" for="flexSwitchCheckChecked">sofar Inverter</label>
+              </div>
+            </div>
+            <div style="display:flex;justify-content: center;align-items: center;">
+              <img style="height:200px;height:200px" src="../imgs/hyd_ovometer.jpeg" alt="">
+              <span class="m-5">Sofar Hyd Ovometer  &euro; 1.250p/stuck</span>
+              <div class="form-check form-switch">
+                <input class="form-check-input" id="sofar_hyd" name="sofar_omvormeter" type="checkbox" id="flexSwitchCheckChecked" value="1.250">
+                <label class="form-check-label" for="flexSwitchCheckChecked">Sofar Hyd Ovometer</label>
+              </div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content: center;align-items: center;">
+                <img style="height:200px;height:200px" src="../imgs/tigo_optimizer.jpeg" alt="">
+                <span class="m-5">Tigo Optimizer &euro; 55p/stuck</span>
+                <div class="form-check">
+                  <input type="number"  name="tigo_optimizer" id="tigo_optimizer" class="form-control" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-lg">
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;justify-content: center;align-items: center;" class="mt-4">
+              <img style="height:200px;height:150px" src="../imgs/zinken_dak.avif" alt="">
+              <span class="m-5">Voor Zinken Dak  &euro; 125p/stuck</span>
+              <div class="form-check">
+                <input type="number"  name="zinken_dak" id="zinken_dak" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+              </div>
+            </div>
+            <div style="display:flex;justify-content: center;align-items: center;" class="mt-4">
+              <img style="height:200px;height:150px" src="../imgs/Hoogwerker.png" alt="">
+              <span class="m-5">Hoogwerker  &euro; 500p/stuck</span>
+              <div class="form-check form-switch">
+                <input class="form-check-input" id="hoogwerker" name="hoogwerker" type="checkbox" id="flexSwitchCheckChecked" value="500">
+              </div>
+            </div>
+            <div style="display:flex;justify-content: center;align-items: center;" class="mt-4">
+              <img style="height:200px;height:150px" src="../imgs/Thuisbatterij.jpeg" alt="">
+              <span class="m-5">Home Battery 5,1 KWH  &euro; 3,900p/stuck</span>
+              <div class="form-check">
+                <input type="number"  name="thuisbatterij" id="Thuisbatterij" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+              </div>
+            </div>
+            <div style="display:flex;justify-content: center;align-items: center;" class="mt-4">
+              <img style="height:200px;height:150px" src="../imgs/promo.jpeg" alt="">
+              <span class="m-5">Wellcome Promo  &euro; -250p/stuck</span>
+              <div class="form-check">
+                <div class="form-check form-switch">
+                  <input class="form-check-input promo1" type="checkbox" name="promo1" id="flexSwitchCheckChecked" value="250" >
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;justify-content: center;align-items: center;" class="mt-4">
+              <img style="height:200px;height:150px" src="../imgs/promo.jpeg" alt="">
+              <span class="m-5">Wellcome Promo  &euro; -500p/stuck</span>
+              <div class="form-check">
+                <div class="form-check form-switch">
+                  <input class="form-check-input promo2" id="promo2" type="checkbox" name="promo2" id="flexSwitchCheckChecked" value="500" >
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <hr class="mb-4">
+            <h4>Before Creating the proposal Please calculate the total amount, Vat, and total incl vat</h4>
+          <hr class="mb-4">
+          <button class="btn btn-primary btn-lg btn-block" id="propsal_submit" type="submit">Create Proposal</button>
+        </div>
+      </div>
+      
+  </form>
+  
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">© 2021 - 2045 Sunsolar</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Support</a></li>
+      </ul>
+    </footer>
+  </div>
+
+</div>
+<%- include("offer_form_functionalties") %>
+

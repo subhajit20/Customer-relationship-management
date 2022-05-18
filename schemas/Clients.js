@@ -1,28 +1,105 @@
 const mongoose = require("mongoose");
 
-const userModel = new mongoose.Schema({
-    username:{
+const clientModel = new mongoose.Schema({
+    signed:{
+        type:String,
+        enum:["Yes","No"],
+        default:"No"
+    },
+    address:{
         type:String,
         required:true
     },
-    email:{
+    fname:{
         type:String,
-        required:true
+        required:true,
+        trim:true
     },
-    password:{
+    lname:{
         type:String,
-        required:true
+        trim:true,
     },
-    clients:[
-        {
-            ref:"Client",
-            id:mongoose.Types.ObjectId
-        }
-    ]
-})
-
-const Client = new mongoose.model("client",userModel);
+    zip:{
+        type:String,
+        required:true,
+        trim:true
+    },
+    city:{
+        type:String,
+        required:true,
+    },
+    country:{
+        type:String,
+        required:true,
+    },
+    phone_number:{
+        type:String,
+    },
+    proposar_email:{
+        type:String,
+        required:true,
+    },
+    ja_solar:{
+        type:String,
+    },
+    client_type:{
+        type:String,
+    },
+    js_solar_quantity:{
+        type:String
+    },
+    sofar_ovormmeter:{
+        type:String
+    },
+    tigop_optimizer:{
+        type:String
+    },
+    hyd_ovometer:{
+        type:String
+    },
+    zinken_dak:{
+        type:String
+    },
+    hoogwerker:{
+        type:String
+    },
+    thuisbatterij:{
+        type:String
+    },
+    promo1:{
+        type:String
+    },
+    promo2:{
+        type:String
+    },
+    installation_fee:{
+        type:String
+    },
+    total_fee:{
+        type:String
+    },
+    btw:{
+        type:String
+    },
+    incl_btw:{
+        type:String
+    },
+    premium:{
+        type:String
+    },
+    empId:{
+         type:mongoose.Types.ObjectId,
+         ref:"client"
+     },
+     date:{
+        type:Date,
+        default:Date.now
+     },
+    myDate:{
+        type:Date,
+        default:Date.now
+     }})
 
 module.exports = {
-    User
+    clientModel
 }

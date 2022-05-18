@@ -35,7 +35,7 @@ function mySignupPage(req,res){
             title:"SunSolar - Signup"
         });
     }catch(err){
-        res.status(500).render("error_page")
+        res.status(500).render("error_page");
     }
 }
 

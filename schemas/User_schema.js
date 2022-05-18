@@ -9,10 +9,20 @@ const userModel = new mongoose.Schema({
         type:String,
         required:true
     },
+    role:{
+        type:String,
+        default:"Employee"
+    },
     password:{
         type:String,
         required:true
     },
+    proposalId:[
+        {
+            ref:"client",
+            type:mongoose.Types.ObjectId
+        }
+    ]
 })
 
 const User = new mongoose.model("user",userModel);

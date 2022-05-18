@@ -1,0 +1,50 @@
+<div class="container">
+  <p id="err"></p>
+<div class="table-wrapper">
+    <table class="fl-table " >
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Signed</th>
+            <th>Proposal Id</th>
+        </tr>
+        </thead>
+        <tbody id="tables">
+        
+        
+        <tbody>
+    </table>
+</div>
+</div>
+  <script>
+    let value = 0;
+    const tables = document.getElementById("tables");
+    const err = document.getElementById("err");
+
+
+    async function getProp(){
+      const res = await fetch("/getproposal");
+      const data = await res.json();
+      console.log(data.data)
+      let html;
+      if(data.data.length === 0){
+        err.style.display = "block"
+        err.innerHTML = "No Proposal exists in Your acount if You want to make proposal then click here <a href='/user/proposal'>Create Proposal</a>";
+      }else{
+        data.data.map((x)=>{
+          html = `
+          <tr>
+            <td>${++value}</td>
+            <td>${x.fname}</td>
+            <td>${x.lname}</td>
+            <td>${x.signed}</td>
+            <td><a href="/">#${x._id}</a></td>
+            </tr> `
+            tables.innerHTML += html;
+          })
+        }
+      };
+    getProp();
+  </script>

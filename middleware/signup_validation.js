@@ -1,6 +1,5 @@
 /**************** External Imports******************************/
 const { check, validationResult } = require("express-validator");
-const mongoose = require("mongoose");
 const createError = require("http-errors");
 
 const { User } = require("../schemas/User_schema");
@@ -9,8 +8,6 @@ const uservalidate = [
     check("username")
         .isLength({ min: 3 })
         .withMessage("Your usename must be atleast 3 letter")
-        .toLowerCase()
-        .withMessage("Your usename must be in small letter")
         .isAlphanumeric()
         .withMessage("Your usename must be alphanumeric")
         .custom(async (value) => {
