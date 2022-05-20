@@ -2,7 +2,8 @@ const express = require("express");
 const Userroute = express.Router();
 
 const {Homepage,getmyAccount,proposal,items,
-fillProposalPage,makeProposal,clientPage,getProposal} = require("../controller/User_controller");
+fillProposalPage,makeProposal,clientPage,getAllProposal,getProposal
+,getAPropPage} = require("../controller/User_controller");
 const {Authgurd} = require("../middleware/Auth");
 const {offerForm,checkOfferFormValidation} = require("../middleware/offerForm_validation");
 
@@ -21,7 +22,10 @@ Userroute.post("/proposal",Authgurd,uploadFile,offerForm,checkOfferFormValidatio
 
 Userroute.get("/proposals",Authgurd,clientPage);
 
-Userroute.get("/getproposal",Authgurd,getProposal);
+Userroute.get("/getproposal",Authgurd,getAllProposal);
+
+Userroute.get("/proposal/:id",Authgurd,getProposal);
+
 
 
 module.exports ={

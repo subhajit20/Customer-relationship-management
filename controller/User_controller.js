@@ -141,7 +141,7 @@ function clientPage(req, res) {
 }
 
 /* Get Proposal */
-async function getProposal(req, res) {
+async function getAllProposal(req, res) {
   try {
     const getProps = await Client.find({ empId: req.id }).select({
       address: 0,
@@ -149,6 +149,29 @@ async function getProposal(req, res) {
       country: 0,
       empId: 0,
     });
+    res.status(200).json({
+      data: getProps,
+    });
+  } catch (err) {
+    res.status(500).json({
+      error: {
+        mss: "No Proposals are exist...",
+      },
+    });
+  }
+}
+
+function getAPropPage(req,res){
+  try {
+    res.status(200).render("");
+  } catch (err) {
+    res.status(500).render("error_page")
+  }
+}
+
+async function getProposal(req, res) {
+  try {
+    const getProps = await Client.find({ _id: req.params.id });
     res.status(200).json({
       data: getProps,
     });
@@ -169,5 +192,7 @@ module.exports = {
   fillProposalPage,
   makeProposal,
   clientPage,
+  getAllProposal,
   getProposal,
+  getAPropPage
 };

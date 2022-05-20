@@ -8,7 +8,7 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Signed</th>
-            <th>Proposal Id</th>
+            <th>Go and View the Proposal</th>
         </tr>
         </thead>
         <tbody id="tables">
@@ -40,7 +40,7 @@
             <td>${x.fname}</td>
             <td>${x.lname}</td>
             <td>${x.signed}</td>
-            <td><a href="/">#${x._id}</a></td>
+            <td><a style="text-decoration:none;background-color:yellow;color:black;border-radius:10px" href="/proposal/${x._id}" >Go and View The Proposal</a></td>
             </tr> `
             tables.innerHTML += html;
           })
